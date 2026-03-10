@@ -15,9 +15,7 @@ const items = [
 
 export function Marquee() {
   return (
-    <section className="py-12 border-y border-white/5 bg-[#0a0a0a] overflow-hidden relative">
-      <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a] via-transparent to-[#0a0a0a] z-10 pointer-events-none w-full h-full"></div>
-      
+    <div className="py-4 border-y border-[#e5e5e5]/10 bg-[#e50010]/[0.04] overflow-hidden">
       <div className="flex whitespace-nowrap items-center">
         <motion.div
           animate={{ x: [0, -1000] }}
@@ -26,19 +24,18 @@ export function Marquee() {
             ease: "linear",
             duration: 20,
           }}
-          className="flex gap-8 items-center px-4"
+          className="flex gap-14 items-center px-7"
         >
-          {/* Duplicate items for infinite scroll effect */}
           {[...items, ...items, ...items, ...items].map((item, i) => (
-            <div key={i} className="flex items-center gap-8 text-white/50 hover:text-white transition-colors cursor-default">
-              <span className="text-xl md:text-3xl font-bold tracking-tighter uppercase">
+            <div key={i} className="flex items-center gap-14 text-[#efefef]/40 cursor-default">
+              <span className="text-[12px] font-medium tracking-[0.25em] uppercase">
                 {item}
               </span>
-              <span className="text-white/20 text-2xl">✦</span>
+              <span className="text-[#e50010] text-[8px]">✦</span>
             </div>
           ))}
         </motion.div>
       </div>
-    </section>
+    </div>
   );
 }

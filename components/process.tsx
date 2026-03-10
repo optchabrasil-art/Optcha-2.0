@@ -32,18 +32,13 @@ const steps = [
 
 export function Process() {
   return (
-    <Section id="processo" className="bg-[#0a0a0a] border-t border-white/5">
+    <Section id="processo" className="bg-[#0e0e0e] border-t border-b border-[#e5e5e5]/10">
       <SectionHeader
         label="Como trabalhamos"
         title="Como transformamos ideias em resultados"
-        linkText="How we work"
-        linkHref="#processo"
       />
 
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8 relative">
-        {/* Connecting Line (Desktop) */}
-        <div className="hidden xl:block absolute top-[60px] left-[10%] right-[10%] h-[1px] bg-white/10 z-0" />
-
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-px bg-[#e5e5e5]/10 border border-[#e5e5e5]/10">
         {steps.map((step, index) => (
           <motion.div
             key={step.number}
@@ -51,31 +46,24 @@ export function Process() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, delay: index * 0.1 }}
-            className="relative z-10 flex flex-col pt-8 xl:pt-0 group"
+            className="relative z-10 flex flex-col p-8 md:p-10 bg-[#0e0e0e] hover:bg-[#e50010]/[0.04] transition-colors group"
           >
-            <div className="flex items-center justify-between mb-8 xl:mb-12">
-              <span className="text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-white/20 to-transparent group-hover:from-white/40 transition-colors duration-300">
+            <div className="flex flex-col mb-8">
+              <span className="text-7xl font-black text-[#e50010]/10 font-serif group-hover:text-[#e50010]/20 transition-colors mb-6 leading-none">
                 {step.number}
               </span>
-              <span className="px-3 py-1 text-xs font-semibold tracking-widest uppercase border rounded-full border-white/10 text-white/50 bg-[#0a0a0a]">
+              <span className="self-start px-3 py-1 text-[11px] font-semibold tracking-[0.1em] uppercase border rounded-full border-[#e5e5e5]/20 text-[#e50010]">
                 {step.timeframe}
               </span>
             </div>
 
-            <h3 className="text-xl font-bold text-white mb-4 tracking-tight">
+            <h3 className="text-[17px] font-semibold text-[#efefef] mb-3">
               {step.title}
             </h3>
             
-            <p className="text-white/50 leading-relaxed text-sm">
+            <p className="text-[#efefef]/50 leading-[1.7] text-[13px]">
               {step.description}
             </p>
-
-            {/* Decorative SVG Icon */}
-            <div className="mt-8 opacity-20 group-hover:opacity-40 transition-opacity">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 2L2 12L12 22L22 12L12 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </div>
           </motion.div>
         ))}
       </div>

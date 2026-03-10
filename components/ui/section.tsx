@@ -9,7 +9,7 @@ interface SectionProps extends HTMLAttributes<HTMLElement> {
 export function Section({ children, className, containerClassName, ...props }: SectionProps) {
   return (
     <section 
-      className={cn("py-20 md:py-30 2xl:py-40 px-6 md:px-12 xl:px-20", className)} 
+      className={cn("py-24 md:py-32 px-6 md:px-16", className)} 
       {...props}
     >
       <div className={cn("max-w-[1280px] mx-auto", containerClassName)}>
@@ -21,19 +21,20 @@ export function Section({ children, className, containerClassName, ...props }: S
 
 export function SectionHeader({ label, title, linkText, linkHref }: { label: string, title: string, linkText?: string, linkHref?: string }) {
   return (
-    <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16 md:mb-24">
+    <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
       <div className="max-w-3xl">
-        <div className="inline-block px-3 py-1 mb-6 text-xs font-semibold tracking-widest uppercase border rounded-full border-white/10 text-white/70">
+        <div className="inline-flex items-center gap-3 mb-5 text-[11px] font-bold tracking-[0.2em] uppercase text-[#e50010]">
+          <span className="w-6 h-[1px] bg-[#e50010]"></span>
           {label}
         </div>
-        <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white">
+        <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-[#efefef] font-serif leading-[1.05]">
           {title}
         </h2>
       </div>
       {linkText && linkHref && (
-        <a href={linkHref} className="text-white/70 hover:text-white transition-colors flex items-center gap-2 group whitespace-nowrap">
+        <a href={linkHref} className="text-[#efefef]/70 hover:text-[#efefef] transition-colors flex items-center gap-2 group whitespace-nowrap text-xs tracking-widest uppercase font-semibold">
           {linkText}
-          <span className="group-hover:translate-x-1 transition-transform">→</span>
+          <span className="group-hover:translate-x-1 transition-transform text-[#e50010]">→</span>
         </a>
       )}
     </div>

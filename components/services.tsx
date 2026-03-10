@@ -60,15 +60,13 @@ const services = [
 
 export function Services() {
   return (
-    <Section id="servicos" className="bg-[#0a0a0a] border-t border-white/5">
+    <Section id="servicos" className="bg-[#121212] border-t border-[#e5e5e5]/10">
       <SectionHeader
         label="Soluções"
         title="Transformando ideias em resultados"
-        linkText="Nossos serviços"
-        linkHref="#servicos"
       />
 
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-[#e5e5e5]/10 border border-[#e5e5e5]/10">
         {services.map((service, index) => (
           <motion.div
             key={service.title}
@@ -76,24 +74,28 @@ export function Services() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, delay: index * 0.1 }}
-            className="group relative bg-[#111111] border border-white/10 rounded-2xl p-8 md:p-10 flex flex-col h-full hover:bg-[#161616] transition-colors duration-300"
+            className="group relative bg-[#121212] p-12 md:p-14 flex flex-col h-full hover:bg-[#e50010]/[0.03] transition-colors duration-400"
           >
-            <div className="text-4xl mb-8 opacity-80 group-hover:opacity-100 transition-opacity">
+            <div className="absolute top-[-20px] right-5 font-serif text-[120px] font-black text-[#efefef]/[0.025] leading-none pointer-events-none">
+              0{index + 1}
+            </div>
+
+            <div className="text-[28px] mb-6 relative z-10">
               {service.icon}
             </div>
             
-            <h3 className="text-2xl font-bold text-white mb-6 tracking-tight">
+            <h3 className="font-serif text-[32px] font-bold text-[#efefef] mb-4 leading-[1.1] relative z-10">
               {service.title}
             </h3>
             
-            <p className="text-white/60 leading-relaxed mb-8 flex-1">
+            <p className="text-[15px] text-[#efefef]/55 leading-[1.8] mb-8 flex-1 relative z-10">
               {service.description}
             </p>
             
-            <ul className="space-y-3 mb-10">
+            <ul className="space-y-2 mb-9 relative z-10">
               {service.list.map((item, i) => (
-                <li key={i} className="flex items-start text-sm text-white/50">
-                  <span className="mr-3 text-white/30 mt-0.5">✦</span>
+                <li key={i} className="flex items-center gap-3 text-[13px] text-[#efefef]/60">
+                  <span className="w-1 h-1 bg-[#e50010] rounded-full flex-shrink-0"></span>
                   {item}
                 </li>
               ))}
@@ -101,19 +103,11 @@ export function Services() {
             
             <a
               href="#contato"
-              className="inline-flex items-center text-sm font-bold tracking-widest uppercase text-white hover:text-white/80 transition-colors group/link mt-auto"
+              className="inline-flex items-center text-[12px] font-semibold tracking-[0.2em] uppercase text-[#e50010] hover:gap-4 transition-all group/link mt-auto relative z-10"
             >
               {service.linkText}
-              <span className="ml-2 group-hover/link:translate-x-1 transition-transform">→</span>
+              <span className="ml-2">→</span>
             </a>
-
-            {/* Decorative SVG Shape */}
-            <div className="absolute top-0 right-0 p-6 opacity-[0.02] group-hover:opacity-[0.05] transition-opacity pointer-events-none">
-              <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="50" cy="50" r="40" stroke="white" strokeWidth="2" strokeDasharray="4 4" />
-                <circle cx="50" cy="50" r="20" stroke="white" strokeWidth="1" />
-              </svg>
-            </div>
           </motion.div>
         ))}
       </div>
